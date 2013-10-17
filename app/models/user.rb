@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :pins
+  has_attached_file :avatar, :styles => { :medium => "150x150>", :thumb => "30x30!" }
+  validates_presence_of :display_name
 end

@@ -1,0 +1,30 @@
+<div id="pins" class="transitions-enabled">
+  <% @pins.each do |pin| %>
+    <div class="box panel panel-default">
+      <%= link_to image_tag(pin.image.url(:medium), class: "box-img"), pin_path(pin) %>
+      <div class="panel-body">
+        <p><%= pin.description %></p>
+        <p>
+          <% if pin.user.avatar.file? %>
+            <%= link_to image_tag(pin.user.avatar.url(:thumb)), user_path(pin.user) %>
+          <% else %>
+            <%= link_to image_tag(image_path('image_missing.png'), class: "missing-thumb"), user_path(pin.user) %>
+          <% end %>
+          <%= link_to pin.user.display_name, user_path(pin.user) %>
+        </p>
+        <% if pin.user == current_user %>
+          <div class="actions">
+            <%= link_to edit_pin_path(pin) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

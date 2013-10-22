@@ -13,3 +13,4 @@ Rails 4.0.0
 
 Paperclip gem needs ImageMagick installed on the system to run
 
+.

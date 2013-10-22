@@ -13,4 +13,11 @@ Rails 4.0.0
 
 Paperclip gem needs ImageMagick installed on the system to run
 
-.
+# Heroku development config
+
+You need to set the Amazon AWS environment variables in Heroku:
+```
+$ heroku config:set AWS_BUCKET=likepinterest
+$ heroku config:set AWS_ACCESS_KEY_ID=***GET FROM AMAZON AWS***
+$ heroku config:set AWS_SECRET_ACCESS_KEY=***GET FROM AMAZON AWS***
+```

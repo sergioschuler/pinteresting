@@ -1,2 +1,4 @@
-<%= link_to image_tag(pin.user.avatar.url(:thumb)), user_path(pin.user) %>
-<%= link_to pin.user.display_name, user_path(pin.user) if pin.user %>
+<% if pin.user %>
+	<%= link_to image_tag(pin.user.avatar.url(:thumb)), user_path(pin.user) %>
+	<%= link_to pin.user.display_name, user_path(pin.user) if pin.user %>
+<% end %>
